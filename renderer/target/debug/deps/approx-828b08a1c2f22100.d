@@ -1,0 +1,11 @@
+D:\Programming\Rust\Vulkan-Renderer\renderer\target\debug\deps\libapprox-828b08a1c2f22100.rmeta: C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\lib.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\abs_diff_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\relative_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\ulps_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\macros.rs
+
+D:\Programming\Rust\Vulkan-Renderer\renderer\target\debug\deps\libapprox-828b08a1c2f22100.rlib: C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\lib.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\abs_diff_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\relative_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\ulps_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\macros.rs
+
+D:\Programming\Rust\Vulkan-Renderer\renderer\target\debug\deps\approx-828b08a1c2f22100.d: C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\lib.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\abs_diff_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\relative_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\ulps_eq.rs C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\macros.rs
+
+C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\lib.rs:
+C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\abs_diff_eq.rs:
+C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\relative_eq.rs:
+C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\ulps_eq.rs:
+C:\Users\hector\.cargo\registry\src\index.crates.io-6f17d22bba15001f\approx-0.4.0\src\macros.rs:
