@@ -121,17 +121,28 @@ extern "system" fn debug_callback(
     let data = unsafe { *data };
     let message = unsafe { CStr::from_ptr(data.message) }.to_string_lossy();
 
+    match type_ {
+        vk::DebugUtilsMessageTypeFlagsEXT::PERFORMANCE => warn!("Woah there cowboy, slow down... Or should i say speed up? ({:?}) {}", type_, message),
+        _ => (),
+    }
+
     // Here i should maybe rplace with the mogging logging libary
     // Just diplays the debugging information, and gives it some cool colors.
-    if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::ERROR {
-        error!("({:?}) {}", type_, message);
-    } else if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::WARNING {
-        warn!("({:?}) {}", type_, message);
-    } else if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::INFO {
-        debug!("({:?}) {}", type_, message);
-    } else {
-        trace!("({:?}) {}", type_, message);
+    match severity {
+        vk::DebugUtilsMessageSeverityFlagsEXT::ERROR => error!("({:?}) {}", type_, message),
+        vk::DebugUtilsMessageSeverityFlagsEXT::WARNING => warn!("({:?}) {}", type_, message),
+        vk::DebugUtilsMessageSeverityFlagsEXT::INFO => info!("({:?}) {}", type_, message),
+        _ => trace!("({:?}) {}", type_, message)
     }
+    // if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::ERROR {
+    //     error!("({:?}) {}", type_, message);
+    // } else if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::WARNING {
+    //     warn!("({:?}) {}", type_, message);
+    // } else if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::INFO {
+    //     debug!("({:?}) {}", type_, message);
+    // } else {
+    //     trace!("({:?}) {}", type_, message);
+    // }
 
     vk::FALSE
 }
