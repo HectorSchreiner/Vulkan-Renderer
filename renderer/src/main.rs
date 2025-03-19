@@ -89,10 +89,16 @@ unsafe fn create_instance(window: &Window, entry: &Entry) -> Result<Instance> {
         .application_version(vk::make_version(1, 0, 0))
         .api_version(vk::make_version(1, 0, 0));
 
-    let extensions = vk_window::get_required_instance_extensions(window)
+    let mut extensions = vk_window::get_required_instance_extensions(window)
         .iter()
         .map(|e| e.as_ptr())
         .collect::<Vec<_>>();
+
+    if VALIDATION_ENABLED {
+        // lets not check if it exists.
+        extensions.push(vk::EXT_DEBUG_UTILS_EXTENSION.name.as_ptr());
+    }
+
     // what the fuck er det her!! future proof my ass
     let flags = vk::InstanceCreateFlags::empty();
     let info = vk::InstanceCreateInfo::builder()
@@ -102,6 +108,32 @@ unsafe fn create_instance(window: &Window, entry: &Entry) -> Result<Instance> {
         .flags(flags);
     
     Ok(entry.create_instance(&info, None)?)
+}
+
+// follow system calling convention, otherwise vulkan gets mad
+extern "system" fn debug_callback(
+    severity: vk::DebugUtilsMessageSeverityFlagsEXT,
+    type_: vk::DebugUtilsMessageTypeFlagsEXT,
+    data: *const vk::DebugUtilsMessengerCallbackDataEXT,
+    _: *mut c_void,
+) -> vk::Bool32 {
+    // pointer to a struct that contains the debug information
+    let data = unsafe { *data };
+    let message = unsafe { CStr::from_ptr(data.message) }.to_string_lossy();
+
+    // Here i should maybe rplace with the mogging logging libary
+    // Just diplays the debugging information, and gives it some cool colors.
+    if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::ERROR {
+        error!("({:?}) {}", type_, message);
+    } else if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::WARNING {
+        warn!("({:?}) {}", type_, message);
+    } else if severity >= vk::DebugUtilsMessageSeverityFlagsEXT::INFO {
+        debug!("({:?}) {}", type_, message);
+    } else {
+        trace!("({:?}) {}", type_, message);
+    }
+
+    vk::FALSE
 }
 
 /// Our Vulkan app.
