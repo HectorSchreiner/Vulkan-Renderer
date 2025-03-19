@@ -15,7 +15,10 @@ use log::*;
 use vulkanalia::loader::{LibloadingLoader, LIBRARY};
 use vulkanalia::window as vk_window;
 use vulkanalia::prelude::v1_0::*;
+use vulkanalia::Version;
 
+// prob not gonna make it portable to macos, might remove idunno yet :,)
+const PORTABILITY_MACOS_VERSION: Version = Version::new(1, 3, 216);
 
 fn main() -> Result<()> {
     pretty_env_logger::init();
